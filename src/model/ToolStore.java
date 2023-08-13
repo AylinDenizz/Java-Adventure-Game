@@ -35,12 +35,36 @@ public class ToolStore extends NormalLoc {
     }
 
     public void printWeapon() {
-
+// purchasing weapon codes.
         System.out.println("^^^^^^^^Weapons^^^^^^^^");
         for (Weapon weapon : Weapon.weapons()) {
-            System.out.println(weapon.getName() + " , Para :" + weapon.getPrice() + " Hasar : " + weapon.getDamage());
+            System.out.println(weapon.getId() + "-" +weapon.getName() + " , Para :" + weapon.getPrice() +
+                    " Hasar : " + weapon.getDamage());
 
         }
+        System.out.println("Choose a weapon : ");
+        int selectWeapon = scanner.nextInt();
+        while (selectWeapon< 1 || selectWeapon > Weapon.weapons().length) {
+            System.out.println("You entered an invalid value");
+            selectWeapon =scanner.nextInt();
+        }
+        Weapon weapon= Weapon.getWeaponObyByID(selectWeapon);
+        if (weapon != null) {
+            if(weapon.getPrice() > this.getPlayer().getMoney()) {
+                System.out.println("Don't enough money!");
+            }else {
+                System.out.println(weapon.getName() + "is bought !");
+                int balance = this.getPlayer().getMoney() - weapon.getPrice();
+                this.getPlayer().setMoney(balance);
+                System.out.println(this.getPlayer().getMoney() + "left from your money !");
+                System.out.println("Previous weapon : " + this.getPlayer().getInventory().getWeapon());
+                this.getPlayer().getInventory().setWeapon(weapon);
+                System.out.println("Current weapon : " + this.getPlayer().getInventory().getWeapon());
+
+            }
+
+        }
+
     }
 
     public void printArmor() {

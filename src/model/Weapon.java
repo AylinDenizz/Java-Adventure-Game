@@ -15,10 +15,19 @@ public class Weapon {
 
     public static Weapon[] weapons() {
         Weapon[] weaponList = new Weapon[3];
-        weaponList[0] = new Weapon("Gun", 1, 3,23);
-        weaponList[0] = new Weapon("Sword", 2, 2,12);
-        weaponList[0] = new Weapon("Shotgun", 3, 4,21);
+        weaponList[0] = new Weapon("Gun", 1, 3,5);
+        weaponList[1] = new Weapon("Sword", 2, 2,2);
+        weaponList[2] = new Weapon("Shotgun", 3, 4,3);
     return weaponList;
+    }
+
+    public static Weapon getWeaponObyByID(int id) {
+        for (Weapon w: Weapon.weapons()) {
+            if (w.getId() == id) {
+                return w;
+            }
+        }
+        return null;
     }
 
 

@@ -6,16 +6,18 @@ public class Player {
     private int id;
     private int damage;
     private int health;
-    private int price;
+    private int money;
     private String name;
     private String charName;
+    private Inventory inventory;
 
     public Player(String name) {
         this.name = name;
+        this.inventory = new Inventory();
     }
 
     public int getDamage() {
-        return damage;
+        return damage + this.getInventory().getWeapon().getDamage();
     }
 
     Scanner input = new Scanner(System.in);
@@ -58,19 +60,18 @@ public class Player {
                 "\t\tCharacter: " + this.name  +
                 "\t\t Damage: " + this.damage  +
                 "\t\t Health" + this.health  +
-                "\t\t Price: " + this.price );
+                "\t\t Price: " + this.money);
 
         System.out.println(this.toString());
 
     }
 
 
-
     public void initPlayer(GameChar gameChar) {
         this.setDamage(gameChar.getDamage());
         this.setHealth(gameChar.getHealth());
         this.setName(gameChar.getName());
-        this.setPrice(gameChar.getPrice());
+        this.setMoney(gameChar.getPrice());
     }
 
     public void setDamage(int damage) {
@@ -85,12 +86,12 @@ public class Player {
         this.health = health;
     }
 
-    public int getPrice() {
-        return price;
+    public int getMoney() {
+        return money;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
+    public void setMoney(int money) {
+        this.money = money;
     }
 
     public String getName() {
@@ -112,11 +113,22 @@ public class Player {
     @Override
     public String toString() {
         return "Player{" +
-                "damage=" + damage +
+                "id=" + id +
+                ", damage=" + damage +
                 ", health=" + health +
-                ", price=" + price +
+                ", money=" + money +
                 ", name='" + name + '\'' +
                 ", charName='" + charName + '\'' +
+                ", inventory=" + inventory +
+                ", input=" + input +
                 '}';
+    }
+
+    public Inventory getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(Inventory inventory) {
+        this.inventory = inventory;
     }
 }

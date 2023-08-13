@@ -20,6 +20,7 @@ public class Game {
 
         Location location = null;
         while (true) {
+            System.out.println(player.toString());
             System.out.println("\n^^^^^^^^^^^^^^^^^^^Locations^^^^^^^^^^^^^^^^^^^^\n");
             System.out.println("\n 1 - Safe House --> This plase is a safe place for you (There is no enemy in here!)." +
                     "\n 2 - Store --> This plase is a  place to buy armor and wapon." +
@@ -35,7 +36,7 @@ public class Game {
                 default:
                     location = new SafeHouse(player);
             }
-            if(location.onLocation()) {
+            if(!location.onLocation()) {
                 System.out.println("Game Over!");
                 break;
             }
