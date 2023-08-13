@@ -18,6 +18,8 @@ public class Player {
         return damage;
     }
 
+    Scanner input = new Scanner(System.in);
+
     public void selectChar() {
         Scanner input = new Scanner(System.in);
 
@@ -59,7 +61,9 @@ public class Player {
                 "\t\t Price: " + this.price );
 
         System.out.println(this.toString());
+
     }
+
 
 
     public void initPlayer(GameChar gameChar) {
