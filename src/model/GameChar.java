@@ -49,7 +49,7 @@ public abstract class GameChar {
         this.name = name;
     }
 
-    public int getPrice() {
+    public int getMoney() {
         return price;
     }
 

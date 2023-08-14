@@ -38,7 +38,7 @@ public class Player {
                     "\t\tCharacter: " + gameChar.getName() +
                     "\t\t Damage: " + gameChar.getDamage() +
                     "\t\t Health" + gameChar.getHealth() +
-                    "\t\t Price: " + gameChar.getPrice());
+                    "\t\t Price: " + gameChar.getMoney());
         }
         System.out.println("--------------------------------------------");
         System.out.println("Please choose a character to fight");
@@ -71,7 +71,7 @@ public class Player {
         this.setDamage(gameChar.getDamage());
         this.setHealth(gameChar.getHealth());
         this.setName(gameChar.getName());
-        this.setMoney(gameChar.getPrice());
+        this.setMoney(gameChar.getMoney());
     }
 
     public void setDamage(int damage) {

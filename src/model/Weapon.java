@@ -21,7 +21,7 @@ public class Weapon {
     return weaponList;
     }
 
-    public static Weapon getWeaponObyByID(int id) {
+    public static Weapon getWeaponByID(int id) {
         for (Weapon w: Weapon.weapons()) {
             if (w.getId() == id) {
                 return w;
