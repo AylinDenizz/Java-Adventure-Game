@@ -74,6 +74,8 @@ public class Player {
         this.setMoney(gameChar.getMoney());
     }
 
+
+
     public void setDamage(int damage) {
         this.damage = damage;
     }

@@ -27,6 +27,8 @@ public class Game {
                     "\n Please choose a place to go : ");
             int selectLoc = input.nextInt();
             switch (selectLoc) {
+                case 0:
+                    location = null;
                 case 1:
                     location = new SafeHouse(player);
                     break;
@@ -35,6 +37,11 @@ public class Game {
                     break;
                 default:
                     location = new SafeHouse(player);
+            }
+
+            if (location == null) {
+                System.out.println("Game Over");
+                break;
             }
             if(!location.onLocation()) {
                 System.out.println("Game Over!");
